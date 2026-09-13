@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12. Dictionaries · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html" class="active"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>12. Dictionaries</h1>
+    <p>Store data as key-value pairs for ultra-fast lookups.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 12</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> Look Up Data With Dictionaries</h2>
+      <p>A <strong>dictionary</strong> stores <strong>key-value pairs</strong>. The key is the label used to find information, and the value is the information returned. Unlike a list, you normally look up a dictionary value by its key instead of by position.</p>
+      <pre><code>product = {"name": "Notebook", "price": 120}
+product["stock"] = 15
+print(product.get("price", 0))</code></pre>
+      <p>The program creates product information, adds stock later, and safely reads the price. Online shops, employee records, settings files, and API responses commonly use dictionaries because named fields are easy to understand.</p>
+      <p><code>.get()</code> is useful when a key might be missing because it can return a default value instead of raising an error. A nested dictionary is a dictionary stored inside another value, useful for structured records.</p>
+      <p><strong>Key words:</strong> key (lookup label), value (stored data), lookup (finding data), mutable (changeable), nested (inside another structure), and default (fallback value).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-book"></i> Creating Dictionaries</h2>
+      <pre><code>person = {
+    "name": "Javanson",
+    "age": 25,
+    "city": "Nairobi",
+    "is_dev": True
+}
+
+print(person)
+print(person["name"])</code></pre>
+      <div class="output-box">{'name': 'Javanson', 'age': 25, 'city': 'Nairobi', 'is_dev': True}
+Javanson</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-edit"></i> Accessing & Modifying</h2>
+      <pre><code>person = {"name": "Javanson", "age": 25}
+
+# Access
+print(person["name"])
+print(person.get("age"))
+print(person.get("country", "Unknown"))   # Safe access
+
+# Modify
+person["age"] = 26
+person["city"] = "Mombasa"
+print(person)</code></pre>
+      <div class="output-box">Javanson
+25
+Unknown
+{'name': 'Javanson', 'age': 26, 'city': 'Mombasa'}</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-sync-alt"></i> Dictionary Methods</h2>
+      <pre><code>person = {"name": "Javanson", "age": 25}
+
+print(person.keys())
+print(person.values())
+print(person.items())
+
+person.pop("age")
+print(person)
+
+person.update({"age": 26, "city": "Nairobi"})
+print(person)</code></pre>
+      <div class="output-box">dict_keys(['name', 'age'])
+dict_values(['Javanson', 25])
+dict_items([('name', 'Javanson'), ('age', 25)])
+{'name': 'Javanson'}
+{'name': 'Javanson', 'age': 26, 'city': 'Nairobi'}</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-redo"></i> Looping Through Dicts</h2>
+      <pre><code>person = {"name": "Javanson", "age": 25, "city": "Nairobi"}
+
+for key in person:
+    print(key)
+
+for key, value in person.items():
+    print(f"{key}: {value}")</code></pre>
+      <div class="output-box">name
+age
+city
+name: Javanson
+age: 25
+city: Nairobi</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-layer-group"></i> Nested Dictionaries</h2>
+      <pre><code>employees = {
+    "dev1": {"name": "Javanson", "role": "Backend"},
+    "dev2": {"name": "Alice", "role": "Frontend"}
+}
+
+print(employees["dev1"]["name"])
+print(employees["dev2"]["role"])</code></pre>
+      <div class="output-box">Javanson
+Frontend</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
+      <div class="error-box">
+KeyError: 'country'
+      </div>
+      <p><strong>Cause:</strong> Accessing a key that doesn't exist. Use <code>.get()</code> for safe access.</p>
+
+      <div class="error-box">
+TypeError: unhashable type: 'list'
+      </div>
+      <p><strong>Cause:</strong> Using a list as a dictionary key. Only immutable types can be keys.</p>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 12</h3>
+      <ol>
+        <li>Create a dictionary of 5 countries and their capitals.</li>
+        <li>Print the capital of a specific country.</li>
+        <li>Add two new countries and delete one.</li>
+        <li>Loop through and print "Capital of X is Y".</li>
+        <li>Count word frequency in a sentence using a dictionary.</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_dictionaries.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Dictionaries</a>
+      <a data-link="https://realpython.com/python-dicts/" class="resource-link"><i class="fas fa-book"></i> Real Python: Dictionaries</a>
+      <a data-link="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" class="resource-link"><i class="fas fa-book"></i> Python Docs: Dicts</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="tuples-set.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="files.html" class="next">Next: File Handling <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

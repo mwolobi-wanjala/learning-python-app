@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">JANS TECH</string>
+    <string name="title_activity_main">JANS TECH</string>
+    <string name="package_name">com.janstech.python</string>
+    <string name="custom_url_scheme">com.janstech.python</string>
+</resources>

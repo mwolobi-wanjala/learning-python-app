@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19. Libraries & Frameworks · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html" class="active"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>19. Libraries & Frameworks</h1>
+    <p>Explore the powerful ecosystem that makes Python the world's most versatile language.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 19</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> What Libraries Are For</h2>
+      <p>A <strong>library</strong> is reusable code written by someone else. A <strong>framework</strong> provides a larger structure and rules for building an application. A package is the installable distribution that may contain one or more modules.</p>
+      <pre><code># install once in the project environment
+pip install requests
+
+# use the library in Python
+import requests
+response = requests.get("https://example.com")</code></pre>
+      <p>The program uses a library to make an HTTP request instead of implementing the network protocol itself. Libraries save time and let developers build dependable features for web pages, data analysis, machine learning, games, desktop interfaces, and automation.</p>
+      <p>Choose a library by checking its documentation, maintenance, license, and security. A data frame is a table-like structure for analysis, an API is a way for programs to communicate, and web scraping means extracting information from web pages where permission allows it.</p>
+      <p><strong>Key words:</strong> library (reusable tools), framework (application structure), package (installable code), API (program-to-program interface), dependency (required package), data frame (table-like data), GUI (graphical interface), and model (learned or structured prediction logic).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-globe"></i> Web Development</h2>
+      <h3>Flask — Lightweight & Flexible</h3>
+      <pre><code>pip install flask
+
+# app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from JANS TECH!"
+
+if __name__ == "__main__":
+    app.run(debug=True)</code></pre>
+
+      <h3>Django — Batteries Included</h3>
+      <pre><code>pip install django
+django-admin startproject mysite
+cd mysite
+python manage.py runserver</code></pre>
+      <a data-link="https://flask.palletsprojects.com/" class="resource-link"><i class="fas fa-external-link-alt"></i> Flask Docs</a>
+      <a data-link="https://www.djangoproject.com/" class="resource-link"><i class="fas fa-external-link-alt"></i> Django Docs</a>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-chart-bar"></i> Data Science & Analysis</h2>
+      <h3>NumPy — Numerical Computing</h3>
+      <pre><code>import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+print(arr * 2)
+print(arr.mean())
+print(arr.sum())</code></pre>
+      <div class="output-box">[ 2  4  6  8 10]
+3.0
+15</div>
+
+      <h3>Pandas — Data Manipulation</h3>
+      <pre><code>import pandas as pd
+
+data = {
+    "name": ["Javanson", "Alice", "Bob"],
+    "age": [25, 30, 28],
+    "city": ["Nairobi", "Mombasa", "Kisumu"]
+}
+df = pd.DataFrame(data)
+print(df)
+print(df.describe())</code></pre>
+
+      <h3>Matplotlib — Visualizations</h3>
+      <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 25, 30, 40]
+
+plt.plot(x, y, marker='o')
+plt.title("JANS TECH Growth")
+plt.xlabel("Time")
+plt.ylabel("Progress")
+plt.show()</code></pre>
+      <a data-link="https://numpy.org/" class="resource-link"><i class="fas fa-external-link-alt"></i> NumPy</a>
+      <a data-link="https://pandas.pydata.org/" class="resource-link"><i class="fas fa-external-link-alt"></i> Pandas</a>
+      <a data-link="https://matplotlib.org/" class="resource-link"><i class="fas fa-external-link-alt"></i> Matplotlib</a>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-robot"></i> Machine Learning & AI</h2>
+      <ul style="padding-left: 1.5rem;">
+        <li><strong>scikit-learn</strong> — Classic ML algorithms</li>
+        <li><strong>TensorFlow</strong> — Deep learning by Google</li>
+        <li><strong>PyTorch</strong> — Deep learning by Meta</li>
+        <li><strong>Keras</strong> — High-level neural networks</li>
+        <li><strong>Hugging Face</strong> — Pretrained NLP models</li>
+      </ul>
+      <pre><code>from sklearn.linear_model import LinearRegression
+
+X = [[1], [2], [3], [4], [5]]
+y = [2, 4, 6, 8, 10]
+
+model = LinearRegression()
+model.fit(X, y)
+print(model.predict([[6]]))</code></pre>
+      <div class="output-box">[12.]</div>
+      <a data-link="https://scikit-learn.org/" class="resource-link"><i class="fas fa-external-link-alt"></i> scikit-learn</a>
+      <a data-link="https://www.tensorflow.org/" class="resource-link"><i class="fas fa-external-link-alt"></i> TensorFlow</a>
+      <a data-link="https://pytorch.org/" class="resource-link"><i class="fas fa-external-link-alt"></i> PyTorch</a>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-network-wired"></i> APIs & Web Scraping</h2>
+      <h3>Requests — HTTP for Humans</h3>
+      <pre><code>import requests
+
+response = requests.get("https://api.github.com")
+print(response.status_code)
+print(response.json()["current_user_url"])</code></pre>
+
+      <h3>BeautifulSoup — HTML Parsing</h3>
+      <pre><code>from bs4 import BeautifulSoup
+import requests
+
+html = requests.get("https://example.com").text
+soup = BeautifulSoup(html, "html.parser")
+print(soup.title.text)</code></pre>
+      <a data-link="https://requests.readthedocs.io/" class="resource-link"><i class="fas fa-external-link-alt"></i> Requests</a>
+      <a data-link="https://www.crummy.com/software/BeautifulSoup/" class="resource-link"><i class="fas fa-external-link-alt"></i> BeautifulSoup</a>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-gamepad"></i> Game Development & GUI</h2>
+      <ul style="padding-left: 1.5rem;">
+        <li><strong>Pygame</strong> — 2D game development</li>
+        <li><strong>Tkinter</strong> — Built-in GUI library</li>
+        <li><strong>Kivy</strong> — Cross-platform apps</li>
+        <li><strong>PyQt / PySide</strong> — Professional desktop apps</li>
+      </ul>
+      <pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.title("JANS TECH App")
+label = tk.Label(root, text="Hello, World!", font=("Arial", 20))
+label.pack(pady=40)
+root.mainloop()</code></pre>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-trophy"></i> Your Python Journey Continues</h2>
+      <p>You've completed the JANS TECH Python Roadmap! 🎉</p>
+      <p><strong>Next steps:</strong></p>
+      <ol style="padding-left: 1.5rem;">
+        <li>Build 3–5 projects using what you've learned.</li>
+        <li>Contribute to open-source on GitHub.</li>
+        <li>Learn a framework deeply (Django or FastAPI).</li>
+        <li>Explore Data Science or AI specialization.</li>
+        <li>Teach someone else — the best way to master!</li>
+      </ol>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Final Assignment</h3>
+      <ol>
+        <li>Build a Flask web app with at least 2 routes.</li>
+        <li>Analyze a CSV file with Pandas and plot the results.</li>
+        <li>Scrape a website and save data to JSON.</li>
+        <li>Train a simple ML model on a dataset.</li>
+        <li>Share your project with JANS TECH on WhatsApp for feedback!</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Ultimate Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools Python</a>
+      <a data-link="https://realpython.com/" class="resource-link"><i class="fas fa-book"></i> Real Python</a>
+      <a data-link="https://docs.python.org/3/" class="resource-link"><i class="fas fa-book"></i> Python Docs</a>
+      <a data-link="https://pypi.org/" class="resource-link"><i class="fas fa-cube"></i> PyPI</a>
+      <a data-link="https://github.com/python" class="resource-link"><i class="fab fa-github"></i> Python GitHub</a>
+      <a data-link="https://www.freecodecamp.org/learn/scientific-computing-with-python/" class="resource-link"><i class="fas fa-graduation-cap"></i> freeCodeCamp</a>
+      <a data-link="https://leetcode.com/" class="resource-link"><i class="fas fa-code"></i> LeetCode</a>
+      <a data-link="https://www.hackerrank.com/domains/python" class="resource-link"><i class="fas fa-trophy"></i> HackerRank</a>
+      <a data-link="https://stackoverflow.com/questions/tagged/python" class="resource-link"><i class="fab fa-stack-overflow"></i> Stack Overflow</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="async.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="index.html" class="next"><i class="fas fa-home"></i> Back to Home</a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong> · Maintained by <strong>JANS TECH</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

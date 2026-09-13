@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15. Object-Oriented Programming · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html" class="active"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>15. Object-Oriented Programming</h1>
+    <p>Model real-world things with classes and objects — the backbone of modern Python.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 15</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> Think In Objects</h2>
+      <p><strong>Object-oriented programming</strong> groups data and the actions that use it. A <strong>class</strong> is a reusable design, and an <strong>object</strong> (or instance) is one real item created from that design. An attribute stores information; a method is a function that belongs to the object.</p>
+      <pre><code>class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount</code></pre>
+      <p>The class describes what every account has and can do. Each customer gets a separate object with its own owner and balance. Banking, games, online shops, and school systems use classes to model customers, players, products, and students.</p>
+      <p><strong>Inheritance</strong> lets a new class reuse an existing class. <code>super()</code> calls the parent behavior. A double-underscore method such as <code>__init__</code> is a dunder method, a special hook Python calls at a specific time.</p>
+      <p><strong>Key words:</strong> class (design), instance (created object), attribute (stored data), method (object action), constructor (initial setup), inheritance (reuse from a parent), override (replace behavior), and encapsulation (protect internal details).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-cube"></i> Classes & Objects</h2>
+      <pre><code>class Developer:
+    def __init__(self, name, stack):
+        self.name = name
+        self.stack = stack
+
+    def introduce(self):
+        return f"Hi, I'm {self.name} and I code in {self.stack}."
+
+# Create objects (instances)
+dev1 = Developer("Javanson", "Python")
+dev2 = Developer("Alice", "JavaScript")
+
+print(dev1.introduce())
+print(dev2.introduce())</code></pre>
+      <div class="output-box">Hi, I'm Javanson and I code in Python.
+Hi, I'm Alice and I code in JavaScript.</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-sitemap"></i> Inheritance</h2>
+      <pre><code>class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+dog = Dog("Rex")
+cat = Cat("Whiskers")
+print(dog.name, "says", dog.speak())
+print(cat.name, "says", cat.speak())</code></pre>
+      <div class="output-box">Rex says Woof!
+Whiskers says Meow!</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-arrow-up"></i> super() Function</h2>
+      <pre><code>class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+class Manager(Employee):
+    def __init__(self, name, salary, team_size):
+        super().__init__(name, salary)
+        self.team_size = team_size
+
+    def details(self):
+        return f"{self.name} manages {self.team_size} people."
+
+m = Manager("Javanson", 50000, 8)
+print(m.details())</code></pre>
+      <div class="output-box">Javanson manages 8 people.</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-lock"></i> Encapsulation (Private Members)</h2>
+      <pre><code>class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance   # Private
+
+    def deposit(self, amount):
+        if amount &gt; 0:
+            self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+acc = BankAccount("Javanson", 1000)
+acc.deposit(500)
+print(acc.get_balance())</code></pre>
+      <div class="output-box">1500</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-magic"></i> Dunder (Magic) Methods</h2>
+      <pre><code>class Book:
+    def __init__(self, title, pages):
+        self.title = title
+        self.pages = pages
+
+    def __str__(self):
+        return f"'{self.title}' ({self.pages} pages)"
+
+    def __len__(self):
+        return self.pages
+
+b = Book("Python Mastery", 350)
+print(b)
+print(len(b))</code></pre>
+      <div class="output-box">'Python Mastery' (350 pages)
+350</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
+      <div class="error-box">
+TypeError: Developer.__init__() missing 1 required positional argument: 'stack'
+      </div>
+      <p><strong>Cause:</strong> Forgetting to pass all required arguments when creating an object.</p>
+
+      <div class="error-box">
+AttributeError: 'Developer' object has no attribute 'age'
+      </div>
+      <p><strong>Cause:</strong> Accessing an attribute that wasn't set in <code>__init__</code>.</p>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 15</h3>
+      <ol>
+        <li>Create a <code>Student</code> class with name, age, and grades, plus an <code>average()</code> method.</li>
+        <li>Build a <code>Vehicle</code> class and inherit <code>Car</code> and <code>Bike</code> from it.</li>
+        <li>Create a <code>BankAccount</code> class with deposit and withdraw methods.</li>
+        <li>Add <code>__str__</code> to your Student class for printing.</li>
+        <li>Create a <code>Rectangle</code> class with area and perimeter methods.</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_classes.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Classes</a>
+      <a data-link="https://realpython.com/python3-object-oriented-programming/" class="resource-link"><i class="fas fa-book"></i> Real Python: OOP</a>
+      <a data-link="https://docs.python.org/3/tutorial/classes.html" class="resource-link"><i class="fas fa-book"></i> Python Docs: Classes</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="errors.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="modules.html" class="next">Next: Modules <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

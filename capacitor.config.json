@@ -1,0 +1,6 @@
+{
+  "appId": "com.janstech.python",
+  "appName": "JANS TECH",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}

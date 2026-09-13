@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Setup & Installation · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html" class="active"><i class="fas fa-download"></i> 2. Setup & Install</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. File Handling</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>2. Setup & Installation</h1>
+    <p>Get Python installed on your machine and set up a professional coding environment.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 02</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-compass"></i> Understand Your Tools</h2>
+      <p>Python code is written in a file ending in <code>.py</code>. The <strong>interpreter</strong> is the program that reads that file and runs its instructions. VS Code is an editor: it helps you write code, but Python itself does the running.</p>
+      <p>The <strong>terminal</strong> is a text-based window where you type commands. <strong>PATH</strong> tells the terminal where programs such as Python are installed. An editor extension adds features such as completion, error warnings, and formatting.</p>
+      <pre><code>python hello.py
+
+# python = start the interpreter
+# hello.py = the file to run</code></pre>
+      <p>Python opens the file, follows the instructions from top to bottom, and prints the result. This is the same workflow used to run scripts that rename files, create reports, or automate office tasks.</p>
+      <h3>Setup Checkpoint</h3>
+      <p>Create <code>hello.py</code> with <code>print("Python is ready")</code>, run it in the terminal, and confirm the message appears. If it does not, check the interpreter selection and PATH before writing a larger program.</p>
+      <p><strong>Key words:</strong> editor (where code is written), terminal (where commands are entered), interpreter (what executes Python), extension (an editor add-on), and formatter (a tool that makes code readable).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-download"></i> Step 1: Install Python</h2>
+      <p>Go to the official website and download the latest version (Python 3.12+).</p>
+      <a data-link="https://www.python.org/downloads/" class="resource-link"><i class="fas fa-external-link-alt"></i> Download Python</a>
+      <p><strong>Windows tip:</strong> During installation, check <code>✅ Add Python to PATH</code> — this is critical!</p>
+      <p><strong>Mac/Linux:</strong> Python 3 usually comes pre-installed. Verify with <code>python3 --version</code>.</p>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-check-circle"></i> Step 2: Verify Installation</h2>
+      <p>Open your terminal (Command Prompt / PowerShell / Terminal) and type:</p>
+      <pre><code>python --version</code></pre>
+      <div class="output-box">Python 3.12.1</div>
+      <p>If you see a version number, you're good to go!</p>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-laptop-code"></i> Step 3: Install VS Code</h2>
+      <p>VS Code is a free, powerful code editor by Microsoft — perfect for Python.</p>
+      <a data-link="https://code.visualstudio.com/" class="resource-link"><i class="fas fa-external-link-alt"></i> Download VS Code</a>
+      <h3>Must-have VS Code Extensions</h3>
+      <ul style="padding-left: 1.5rem;">
+        <li><strong>Python</strong> (by Microsoft) — IntelliSense, debugging, linting</li>
+        <li><strong>Pylance</strong> — Fast type checking</li>
+        <li><strong>Python Indent</strong> — Auto indentation help</li>
+        <li><strong>Black Formatter</strong> — Auto-format your code</li>
+      </ul>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-play"></i> Step 4: Run Your First Script</h2>
+      <p>Create a file called <code>hello.py</code> and paste:</p>
+      <pre><code>name = "Javanson"
+print(f"Hello {name}, welcome to JANS TECH!")</code></pre>
+      <p>Run it in the terminal:</p>
+      <pre><code>python hello.py</code></pre>
+      <div class="output-box">Hello Javanson, welcome to JANS TECH!</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Setup Errors</h2>
+      <div class="error-box">
+'python' is not recognized as an internal or external command,
+operable program or batch file.
+      </div>
+      <p><strong>Fix:</strong> You forgot to tick "Add Python to PATH" during install. Re-run the installer and choose "Modify" → check PATH.</p>
+
+      <div class="error-box">
+ModuleNotFoundError: No module named 'pandas'
+      </div>
+      <p><strong>Fix:</strong> Install the missing package with <code>pip install pandas</code>.</p>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 2</h3>
+      <ol>
+        <li>Install Python 3.12+ and verify the version in your terminal.</li>
+        <li>Install VS Code and add the Python extension.</li>
+        <li>Create a file <code>about_me.py</code> that prints your name, age, and dream job.</li>
+        <li>Run it and screenshot the output to share with JANS TECH on WhatsApp.</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_getstarted.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Python Get Started</a>
+      <a data-link="https://code.visualstudio.com/docs/python/python-tutorial" class="resource-link"><i class="fas fa-laptop-code"></i> VS Code Python Tutorial</a>
+      <a data-link="https://realpython.com/installing-python/" class="resource-link"><i class="fas fa-download"></i> Real Python: Install Guide</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="introduction.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="variables.html" class="next">Next: Variables <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <title>You're Offline · JANS TECH</title>
+  <style>
+    :root { --primary: #0b1e2f; --primary-light: #1b3b4f; --accent: #ffd966; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 1.5rem; color: white; background: linear-gradient(135deg, var(--primary), var(--primary-light)); font-family: system-ui, sans-serif; text-align: center; }
+    main { width: min(100%, 520px); padding: 2.5rem 1.5rem; }
+    .icon { color: var(--accent); font-size: 4rem; margin-bottom: 1rem; }
+    h1 { margin: 0 0 0.75rem; font-size: clamp(2rem, 8vw, 3.2rem); }
+    p { color: #d7e1e8; line-height: 1.6; }
+    a { display: inline-block; margin-top: 1.25rem; padding: 0.85rem 1.25rem; border-radius: 10px; background: var(--accent); color: var(--primary); font-weight: 700; text-decoration: none; }
+    footer { margin-top: 3rem; color: #b7c5ce; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="icon" aria-hidden="true">&#9889;</div>
+    <h1>You're Offline</h1>
+    <p>JANS TECH is still available. Return to the Python Learning Roadmap and continue with the lessons saved on this device.</p>
+    <a href="./index.html">Return to JANS TECH</a>
+    <footer>JANS TECH · By Mwolobi Javanson</footer>
+  </main>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

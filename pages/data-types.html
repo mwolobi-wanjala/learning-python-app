@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. Data Types · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Intro</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html" class="active"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>4. Data Types</h1>
+    <p>Understand the fundamental building blocks of every Python program.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 04</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> Why Data Types Matter</h2>
+      <p>A <strong>data type</strong> tells Python what kind of value it is handling. An <code>int</code> is a whole number, a <code>float</code> is a decimal number, a <code>str</code> is text, and a <code>bool</code> is either <code>True</code> or <code>False</code>. <code>None</code> means a value is currently missing or intentionally empty.</p>
+      <pre><code>age_text = "21"          # text received from a form
+age = int(age_text)      # convert text to a number
+can_vote = age >= 18      # result is True or False
+print(type(age), can_vote)</code></pre>
+      <p>Input from a keyboard or web form normally arrives as text, even when the user types a number. Type conversion changes it into a number before arithmetic or comparison. A registration system uses this when checking age, quantity, or price.</p>
+      <p>Use <code>type(value)</code> while learning or debugging. Choosing the correct type prevents errors such as trying to add text to a number.</p>
+      <p><strong>Key words:</strong> type (the kind of data), conversion (changing one type to another), string (text), Boolean (true/false data), and <code>None</code> (no value yet).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-shapes"></i> Core Data Types</h2>
+      <p>Python has several built-in types. The most common are:</p>
+      <ul style="padding-left: 1.5rem;">
+        <li><code>int</code> — Whole numbers: <code>10</code>, <code>-3</code>, <code>2025</code></li>
+        <li><code>float</code> — Decimal numbers: <code>3.14</code>, <code>-0.5</code></li>
+        <li><code>str</code> — Text: <code>"Hello"</code>, <code>'JANS TECH'</code></li>
+        <li><code>bool</code> — True or False: <code>True</code>, <code>False</code></li>
+        <li><code>NoneType</code> — Represents "no value": <code>None</code></li>
+      </ul>
+      <pre><code>age = 25                # int
+price = 99.99           # float
+name = "Javanson"       # str
+is_student = True       # bool
+result = None           # NoneType
+
+print(type(age))
+print(type(price))
+print(type(name))
+print(type(is_student))
+print(type(result))</code></pre>
+      <div class="output-box">
+&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;
+&lt;class 'NoneType'&gt;
+      </div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-sync-alt"></i> Type Conversion</h2>
+      <p>You can convert between types using built-in functions:</p>
+      <pre><code>num_str = "100"
+num_int = int(num_str)      # "100" → 100
+num_float = float("3.14")   # "3.14" → 3.14
+text = str(2025)            # 2025 → "2025"
+
+print(num_int + 50)         # 150
+print(num_float * 2)        # 6.28
+print(text + " is the year")</code></pre>
+      <div class="output-box">150
+6.28
+2025 is the year</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
+      <div class="error-box">
+TypeError: can only concatenate str (not "int") to str
+      </div>
+      <p><strong>Cause:</strong> Trying to add a string and an integer: <code>"Age: " + 25</code>. Fix it with <code>"Age: " + str(25)</code> or use an f-string.</p>
+      <div class="error-box">
+ValueError: invalid literal for int() with base 10: 'abc'
+      </div>
+      <p><strong>Cause:</strong> Trying to convert a non-numeric string to int. Always validate input.</p>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 4</h3>
+      <ol>
+        <li>Create one variable of each core type (int, float, str, bool, None).</li>
+        <li>Print each variable and its type using <code>type()</code>.</li>
+        <li>Ask the user for their birth year (input comes as string) and convert it to int.</li>
+        <li>Compute and print their age in 2025.</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_datatypes.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Data Types</a>
+      <a data-link="https://realpython.com/python-data-types/" class="resource-link"><i class="fas fa-book"></i> Real Python: Data Types</a>
+      <a data-link="https://docs.python.org/3/library/stdtypes.html" class="resource-link"><i class="fas fa-book"></i> Python Docs: Built-in Types</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="variables.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="operators.html" class="next">Next: Operators <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

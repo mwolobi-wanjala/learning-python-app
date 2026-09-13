@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. Control Flow · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html" class="active"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>7. Control Flow</h1>
+    <p>Teach your program to make decisions with if, elif, and else.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 07</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> Make Decisions With Conditions</h2>
+      <p><strong>Control flow</strong> decides which instructions run and in what order. A <strong>condition</strong> is a question that becomes <code>True</code> or <code>False</code>. An <code>if</code> block runs when its condition is true; <code>elif</code> checks another possibility and <code>else</code> handles everything remaining.</p>
+      <pre><code>balance = 1200
+if balance >= 1000:
+    status = "Premium customer"
+else:
+    status = "Standard customer"
+print(status)</code></pre>
+      <p>Python compares the balance, chooses one branch, and skips the other. A bank can use this for account levels, a school for grades, and a login system to allow or deny access.</p>
+      <p>Indentation is part of Python syntax: the indented lines belong to the decision. A nested condition is an <code>if</code> inside another <code>if</code>; use it when a second question depends on the first.</p>
+      <p><strong>Key words:</strong> condition (a true/false question), branch (one possible path), Boolean (true/false value), nested (inside another block), and ternary expression (a compact one-line choice).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-code-branch"></i> The if Statement</h2>
+      <p>Runs a block of code only if a condition is <code>True</code>.</p>
+      <pre><code>age = 18
+
+if age &gt;= 18:
+    print("You are an adult.")</code></pre>
+      <div class="output-box">You are an adult.</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-sitemap"></i> if-else</h2>
+      <p>Adds an alternative block when the condition is <code>False</code>.</p>
+      <pre><code>score = 45
+
+if score &gt;= 50:
+    print("Pass ✅")
+else:
+    print("Fail ❌")</code></pre>
+      <div class="output-box">Fail ❌</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-layer-group"></i> if-elif-else</h2>
+      <p>Chain multiple conditions together.</p>
+      <pre><code>marks = 78
+
+if marks &gt;= 80:
+    grade = "A"
+elif marks &gt;= 70:
+    grade = "B"
+elif marks &gt;= 60:
+    grade = "C"
+elif marks &gt;= 50:
+    grade = "D"
+else:
+    grade = "F"
+
+print(f"Your grade is {grade}")</code></pre>
+      <div class="output-box">Your grade is B</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-code"></i> Nested Conditions</h2>
+      <pre><code>username = "admin"
+password = "1234"
+
+if username == "admin":
+    if password == "1234":
+        print("Login successful")
+    else:
+        print("Wrong password")
+else:
+    print("Unknown user")</code></pre>
+      <div class="output-box">Login successful</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-compress"></i> One-line if (Ternary)</h2>
+      <pre><code>age = 20
+status = "Adult" if age &gt;= 18 else "Minor"
+print(status)</code></pre>
+      <div class="output-box">Adult</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
+      <div class="error-box">
+SyntaxError: expected ':'
+      </div>
+      <p><strong>Cause:</strong> Forgetting the colon (<code>:</code>) after <code>if</code>, <code>elif</code>, or <code>else</code>.</p>
+
+      <div class="error-box">
+IndentationError: expected an indented block
+      </div>
+      <p><strong>Cause:</strong> Not indenting the block of code under an <code>if</code> statement. Python requires 4 spaces.</p>
+
+      <div class="error-box">
+# Common logical bug
+x = 10
+if x = 10:  # Error! Should be ==
+    print("equal")
+      </div>
+      <p><strong>Cause:</strong> Using <code>=</code> (assignment) instead of <code>==</code> (comparison).</p>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 7</h3>
+      <ol>
+        <li>Write a program that checks if a number is positive, negative, or zero.</li>
+        <li>Build a simple login system with username and password.</li>
+        <li>Take a student's marks and print their grade (A, B, C, D, F).</li>
+        <li>Check if a year is a leap year (divisible by 4, but not 100 unless also 400).</li>
+        <li>Build a simple calculator using if-elif-else for +, -, *, /.</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_conditions.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Conditions</a>
+      <a data-link="https://realpython.com/python-conditional-statements/" class="resource-link"><i class="fas fa-book"></i> Real Python: Conditionals</a>
+      <a data-link="https://docs.python.org/3/tutorial/controlflow.html" class="resource-link"><i class="fas fa-book"></i> Python Docs: Control Flow</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="strings.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="loops.html" class="next">Next: Loops <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

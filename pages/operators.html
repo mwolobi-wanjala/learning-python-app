@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. Operators · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html" class="active"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>5. Operators</h1>
+    <p>Perform calculations and comparisons with Python's built-in operators.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 05</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> Operators Are Instructions</h2>
+      <p>An <strong>operator</strong> is a symbol or word that tells Python to calculate, compare, or combine values. The values around it are <strong>operands</strong>. Arithmetic operators calculate, comparison operators ask a question, and logical operators combine questions.</p>
+      <pre><code>subtotal = 800
+discount = subtotal * 0.10
+amount_due = subtotal - discount
+print(amount_due)  # 720.0</code></pre>
+      <p>Here <code>*</code> calculates the discount and <code>-</code> subtracts it from the subtotal. A billing system, receipt printer, or budgeting app uses operators to turn business rules into calculations.</p>
+      <p><code>//</code> gives whole-number division, <code>%</code> gives a remainder, and <code>**</code> raises a number to a power. Comparison results are Boolean values, so they can be used by <code>if</code> statements.</p>
+      <p><strong>Key words:</strong> operand (a value being used), expression (code that produces a value), modulus (remainder with <code>%</code>), comparison (a true/false check), and assignment (storing a result).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-calculator"></i> Arithmetic Operators</h2>
+      <p>These perform mathematical operations on numbers.</p>
+      <pre><code>a = 10
+b = 3
+
+print(a + b)   # Addition
+print(a - b)   # Subtraction
+print(a * b)   # Multiplication
+print(a / b)   # Division (always returns float)
+print(a // b)  # Floor division (removes decimal)
+print(a % b)   # Modulus (remainder)
+print(a ** b)  # Exponent (10 to the power 3)</code></pre>
+      <div class="output-box">13
+7
+30
+3.3333333333333335
+3
+1
+1000</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-balance-scale"></i> Comparison Operators</h2>
+      <p>Compare two values and return <code>True</code> or <code>False</code>.</p>
+      <pre><code>x = 5
+y = 10
+
+print(x == y)   # Equal to
+print(x != y)   # Not equal
+print(x &lt; y)    # Less than
+print(x &gt; y)    # Greater than
+print(x &lt;= y)   # Less than or equal
+print(x &gt;= y)   # Greater than or equal</code></pre>
+      <div class="output-box">False
+True
+True
+False
+True
+False</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-code-branch"></i> Logical Operators</h2>
+      <p>Combine multiple conditions with <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+      <pre><code>age = 20
+has_id = True
+
+print(age &gt;= 18 and has_id)   # Both must be True
+print(age &lt; 18 or has_id)     # At least one True
+print(not has_id)             # Reverses the value</code></pre>
+      <div class="output-box">True
+True
+False</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-edit"></i> Assignment Operators</h2>
+      <p>Shortcut for updating a variable's value.</p>
+      <pre><code>count = 10
+count += 5   # Same as count = count + 5
+print(count)
+
+count -= 3
+print(count)
+
+count *= 2
+print(count)
+
+count //= 4
+print(count)</code></pre>
+      <div class="output-box">15
+12
+24
+6</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
+      <div class="error-box">
+ZeroDivisionError: division by zero
+      </div>
+      <p><strong>Cause:</strong> Dividing a number by zero. Always check the divisor before dividing.</p>
+      <pre><code>num = 10
+div = 0
+if div != 0:
+    print(num / div)
+else:
+    print("Cannot divide by zero!")</code></pre>
+
+      <div class="error-box">
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+      </div>
+      <p><strong>Cause:</strong> Mixing types. Convert with <code>str()</code> or <code>int()</code> before operating.</p>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 5</h3>
+      <ol>
+        <li>Write a program that takes two numbers and prints their sum, difference, product, and quotient.</li>
+        <li>Check if a given number is even or odd using the modulus operator.</li>
+        <li>Calculate the area and perimeter of a rectangle using variables.</li>
+        <li>Use logical operators to check if a person can vote (age ≥ 18 and is a citizen).</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_operators.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Operators</a>
+      <a data-link="https://realpython.com/python-operators-expressions/" class="resource-link"><i class="fas fa-book"></i> Real Python: Operators</a>
+      <a data-link="https://docs.python.org/3/reference/expressions.html" class="resource-link"><i class="fas fa-book"></i> Python Docs: Expressions</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="data-types.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="strings.html" class="next">Next: Strings <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "jans-tech-python-roadmap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JANS TECH Python Learning Roadmap PWA and Capacitor app",
+  "scripts": {
+    "cap:add:android": "cap add android",
+    "cap:sync": "cap sync",
+    "cap:open:android": "cap open android",
+    "cap:run:android": "cap run android",
+    "serve": "python -m http.server 8000"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.0",
+    "@capacitor/core": "^7.4.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.0"
+  }
+}

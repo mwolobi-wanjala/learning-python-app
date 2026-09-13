@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. Strings · JANS TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0b1e2f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JANS TECH">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
+    <ul class="topic-list">
+      <li><a data-page="introduction.html"><i class="fas fa-play"></i> 1. Introduction</a></li>
+      <li><a data-page="setup.html"><i class="fas fa-download"></i> 2. Setup</a></li>
+      <li><a data-page="variables.html"><i class="fas fa-box"></i> 3. Variables</a></li>
+      <li><a data-page="data-types.html"><i class="fas fa-shapes"></i> 4. Data Types</a></li>
+      <li><a data-page="operators.html"><i class="fas fa-calculator"></i> 5. Operators</a></li>
+      <li><a data-page="strings.html" class="active"><i class="fas fa-font"></i> 6. Strings</a></li>
+      <li><a data-page="control-flow.html"><i class="fas fa-code-branch"></i> 7. Control Flow</a></li>
+      <li><a data-page="loops.html"><i class="fas fa-redo"></i> 8. Loops</a></li>
+      <li><a data-page="functions.html"><i class="fas fa-cube"></i> 9. Functions</a></li>
+      <li><a data-page="lists.html"><i class="fas fa-list"></i> 10. Lists</a></li>
+      <li><a data-page="tuples-set.html"><i class="fas fa-layer-group"></i> 11. Tuples & Sets</a></li>
+      <li><a data-page="dictionaries.html"><i class="fas fa-book"></i> 12. Dictionaries</a></li>
+      <li><a data-page="files.html"><i class="fas fa-file"></i> 13. Files</a></li>
+      <li><a data-page="errors.html"><i class="fas fa-exclamation-triangle"></i> 14. Errors</a></li>
+      <li><a data-page="oop.html"><i class="fas fa-cubes"></i> 15. OOP</a></li>
+      <li><a data-page="modules.html"><i class="fas fa-puzzle-piece"></i> 16. Modules</a></li>
+      <li><a data-page="decoraters.html"><i class="fas fa-magic"></i> 17. Decorators</a></li>
+      <li><a data-page="async.html"><i class="fas fa-bolt"></i> 18. Async</a></li>
+      <li><a data-page="libraries.html"><i class="fas fa-toolbox"></i> 19. Libraries</a></li>
+      <li><a data-page="contact.html"><i class="fas fa-address-card"></i> Contact Us</a></li>
+    </ul>
+    <div class="menu-footer"><strong>JANS TECH</strong><br>By Mwolobi Javanson</div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <header class="lesson-header">
+    <h1>6. Strings</h1>
+    <p>Master text manipulation — one of Python's most powerful features.</p>
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 06</div>
+  </header>
+
+  <main class="container">
+    <section class="lesson-section">
+      <h2><i class="fas fa-lightbulb"></i> Understand Text Data</h2>
+      <p>A <strong>string</strong> is text surrounded by quotes. It is made of characters, and each character has a position called an <strong>index</strong>. Python starts counting indexes at zero, so the first character is at position <code>0</code>.</p>
+      <pre><code>raw_name = "  amina mwolobi  "
+name = raw_name.strip().title()
+message = f"Welcome, {name}!"
+print(message)</code></pre>
+      <p><code>strip()</code> removes extra whitespace, <code>title()</code> capitalizes words, and the f-string inserts the value into a sentence. This is useful when cleaning names from a form before saving them to a customer database or displaying them on a receipt.</p>
+      <p>Strings are <strong>immutable</strong>: a string method creates a new string instead of changing the original text. Slicing, such as <code>text[:5]</code>, extracts a section for previews, codes, and file names.</p>
+      <p><strong>Key words:</strong> character (one text symbol), whitespace (spaces or line breaks), index (a position), slice (a selected range), f-string (formatted text), and immutable (not changed in place).</p>
+    </section>
+    <section class="lesson-section">
+      <h2><i class="fas fa-font"></i> Creating Strings</h2>
+      <p>Strings are text wrapped in quotes. You can use single, double, or triple quotes.</p>
+      <pre><code>first = 'Hello'
+second = "World"
+multi = """This is a
+multi-line string"""
+
+print(first, second)
+print(multi)</code></pre>
+      <div class="output-box">Hello World
+This is a
+multi-line string</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-tools"></i> Common String Methods</h2>
+      <pre><code>text = "  Jans Tech Python  "
+
+print(text.strip())          # Remove whitespace
+print(text.upper())          # UPPERCASE
+print(text.lower())          # lowercase
+print(text.replace("Python", "Coding"))
+print(text.split())          # Split into list
+print(len(text))             # Length</code></pre>
+      <div class="output-box">Jans Tech Python
+  JANS TECH PYTHON  
+  jans tech python  
+  Jans Tech Coding  
+['Jans', 'Tech', 'Python']
+21</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-cut"></i> Slicing</h2>
+      <p>Extract parts of a string using <code>[start:end:step]</code>.</p>
+      <pre><code>name = "Javanson"
+
+print(name[0])      # First character
+print(name[-1])     # Last character
+print(name[0:4])    # Characters 0 to 3
+print(name[4:])     # From index 4 to end
+print(name[::-1])   # Reverse the string</code></pre>
+      <div class="output-box">J
+n
+Java
+nson
+nosnavаJ</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-magic"></i> f-Strings (Formatted Strings)</h2>
+      <p>The cleanest way to embed variables in text.</p>
+      <pre><code>name = "Javanson"
+age = 25
+city = "Nairobi"
+
+print(f"My name is {name}, I am {age} years old, from {city}.")
+print(f"Next year I will be {age + 1}.")</code></pre>
+      <div class="output-box">My name is Javanson, I am 25 years old, from Nairobi.
+Next year I will be 26.</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
+      <div class="error-box">
+IndexError: string index out of range
+      </div>
+      <p><strong>Cause:</strong> Trying to access a character beyond the string length.</p>
+      <pre><code>name = "Jans"
+# print(name[10])  # Error!
+print(name[len(name)-1])  # Correct way to get last char</code></pre>
+
+      <div class="error-box">
+TypeError: 'str' object does not support item assignment
+      </div>
+      <p><strong>Cause:</strong> Strings are <strong>immutable</strong> — you cannot change a character directly.</p>
+      <pre><code># name[0] = "K"   # Error!
+name = "K" + name[1:]  # Create a new string instead
+print(name)  # Kans</code></pre>
+    </section>
+
+    <section class="assignment-box">
+      <h3><i class="fas fa-tasks"></i> Assignment 6</h3>
+      <ol>
+        <li>Take a user's full name and print it in UPPERCASE and lowercase.</li>
+        <li>Reverse a given string without using built-in reverse.</li>
+        <li>Count how many times the letter "a" appears in "Javanson Mwolobi".</li>
+        <li>Check if a string is a palindrome (reads the same forwards and backwards).</li>
+        <li>Format a receipt using f-strings: item, quantity, price, total.</li>
+      </ol>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-link"></i> Referral Resources</h2>
+      <a data-link="https://www.w3schools.com/python/python_strings.asp" class="resource-link"><i class="fas fa-external-link-alt"></i> W3Schools: Strings</a>
+      <a data-link="https://realpython.com/python-strings/" class="resource-link"><i class="fas fa-book"></i> Real Python: Strings</a>
+      <a data-link="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" class="resource-link"><i class="fas fa-book"></i> Python Docs: str</a>
+    </section>
+
+    <nav class="lesson-nav">
+      <a href="operators.html"><i class="fas fa-arrow-left"></i> Prev</a>
+      <a href="control-flow.html" class="next">Next: Control Flow <i class="fas fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
+  <script src="../js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js', { scope: '../' })
+        .then(registration => console.log('JANS TECH service worker registered', registration.scope))
+        .catch(error => console.error('JANS TECH service worker registration failed', error));
+    }
+  </script>
+</body>
+</html>
