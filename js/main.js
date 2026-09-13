@@ -189,6 +189,11 @@
     const total = lessonLinks.length || 19;
     const reached = saved.length;
     const percent = Math.min(100, Math.round((reached / total) * 100));
+    const latestPage = saved[saved.length - 1];
+    const latestLink = lessonLinks.find(link => link.dataset.page === latestPage);
+    const currentLesson = latestLink
+      ? latestLink.textContent.trim().replace(/^\d+\.\s*/, '')
+      : '';
 
     progressLabel.textContent = `${reached} / ${total} lessons`;
     progressFill.style.width = `${percent}%`;
@@ -196,9 +201,9 @@
     if (!reached) {
       progressStatus.textContent = 'Your learning journey is ready to begin.';
     } else if (reached === total) {
-      progressStatus.textContent = 'Excellent work — you have completed the full roadmap.';
+      progressStatus.textContent = `You have reached ${reached} lessons. Currently on: ${currentLesson}. You have completed the full roadmap.`;
     } else {
-      progressStatus.textContent = `You have reached ${reached} lesson${reached === 1 ? '' : 's'} so far.`;
+      progressStatus.textContent = `You have reached ${reached} lesson${reached === 1 ? '' : 's'}. Currently on: ${currentLesson}.`;
     }
   }
 
