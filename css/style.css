@@ -419,6 +419,17 @@ footer strong { color: var(--accent); }
   max-width: 1180px;
   padding-top: 3.5rem;
 }
+.home-brand {
+  gap: 0.65rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.04rem;
+}
+.home-brand i {
+  font-size: 1.75rem;
+  color: var(--accent);
+}
+.home-brand span { line-height: 1; }
 .home-shell .hero-panel {
   background: #ffffff;
   border: 1px solid #d8e0e8;
