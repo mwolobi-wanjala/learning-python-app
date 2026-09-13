@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>17. Decorators & Generators · JANS TECH</title>
+  <title>17. Decorators & Generators Â· JANS TECH</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="manifest" href="../manifest.json">
@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 </head>
 <body>
-  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='../pages/index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
   <div class="side-menu" id="sideMenu">
     <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
     <ul class="topic-list">
@@ -65,7 +65,8 @@
 @log_call
 def greet():
     print("Hello")</code></pre>
-      <p>Calling <code>greet()</code> now logs before and after the original function. Web frameworks use decorators for login checks, permissions, routes, and timing; they are useful when the same extra behavior belongs around many functions.</p>
+    <p>Python evaluates <code>@log_call</code> when the function is created. It is equivalent to writing <code>greet = log_call(greet)</code>, so the name <code>greet</code> now refers to <code>wrapper</code>. When you call <code>greet()</code>, the wrapper prints <em>Starting</em>, calls the original function through <code>function()</code>, and then prints <em>Finished</em>.</p>
+    <p>Real decorators should usually accept <code>*args</code> and <code>**kwargs</code> so they work with functions that receive different arguments. Use <code>functools.wraps</code> inside the wrapper to preserve the original function's name and documentation. Web frameworks use decorators for login checks, permissions, routes, and timing because the same extra behavior can surround many functions.</p>
       <p>A <strong>generator</strong> produces one value at a time with <code>yield</code> instead of building every value in memory. This is called <strong>lazy evaluation</strong> and is useful for large files, database rows, or streams of incoming data.</p>
       <p><strong>Key words:</strong> decorator (behavior added around a function), wrapper (replacement function), callable (something that can be called), generator (one-at-a-time producer), <code>yield</code> (pause and produce), and lazy evaluation (wait until a value is needed).</p>
     </section>
@@ -87,6 +88,7 @@ say_hello()</code></pre>
       <div class="output-box">Before function runs
 Hello, JANS TECH!
 After function runs</div>
+      <p>The function is not changed internally. The decorator controls what happens before and after it, which keeps the business logic in <code>say_hello()</code> separate from logging or access-control logic.</p>
     </section>
 
     <section class="lesson-section">
@@ -128,6 +130,7 @@ for num in count_up_to(5):
 3
 4
 5</div>
+      <p>At the first call to <code>next()</code>, Python runs until it reaches <code>yield</code>, returns that value, and pauses while remembering the value of <code>i</code>. The next call resumes immediately after <code>yield</code>. After the final value, the generator raises <code>StopIteration</code>; a <code>for</code> loop catches that signal automatically.</p>
     </section>
 
     <section class="lesson-section">
@@ -144,6 +147,7 @@ print(list(squares_gen))</code></pre>
       <div class="output-box">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 &lt;generator object &lt;genexpr&gt; at 0x...&gt;
 [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</div>
+      <p>The list comprehension creates all ten numbers immediately. The generator expression creates only a small generator object and calculates each square when it is requested. A generator is single-use, so after <code>list(squares_gen)</code> consumes it, another loop over it produces no values.</p>
     </section>
 
     <section class="lesson-section">
@@ -183,7 +187,29 @@ TypeError: 'generator' object is not subscriptable
     </nav>
   </main>
 
-  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+    <section id="contact" class="contact-section">
+      <h2><i class="fas fa-address-card"></i> Contact JANS TECH</h2>
+      <p>Tap any card below to open the respective app.</p>
+      <div class="contact-grid">
+        <a href="mailto:mwolobijavanson@gmail.com" data-contact="mailto:mwolobijavanson@gmail.com" class="contact-btn email dynamic-contact">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+          <small>mwolobijavanson@gmail.com</small>
+        </a>
+        <a href="https://wa.me/254784095825" data-contact="https://wa.me/254784095825" class="contact-btn whatsapp dynamic-contact">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+          <small>0784095825</small>
+        </a>
+        <a href="tel:+254115995514" data-contact="tel:+254115995514" class="contact-btn call dynamic-contact">
+          <i class="fas fa-phone-alt"></i>
+          <span>Call</span>
+          <small>0115995514</small>
+        </a>
+      </div>
+    </section>
+
+  <footer><p>Â© 2026 <strong>JANS TECH</strong> Â· Created by <strong>Mwolobi Javanson</strong></p></footer>
   <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
   <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
   <script src="../js/main.js"></script>

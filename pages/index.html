@@ -75,131 +75,70 @@
   <div class="overlay" id="overlay"></div>
 
   <!-- HERO / HOME CONTENT -->
-  <main class="container">
-    <section class="hero">
-      <h1>🐍 Python Learning Roadmap</h1>
-      <p class="hero-sub">A complete journey from zero to Python hero — crafted by <strong>Mwolobi Javanson</strong> at <strong>JANS TECH</strong>.</p>
-      <p class="hero-desc">Follow the roadmap below in order. Each lesson contains clear explanations, working code, expected output, common errors, and assignments to practice.</p>
+  <main class="container home-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow"><i class="fab fa-python"></i> JANS TECH</p>
+        <h1>Learn Python with clarity, momentum, and confidence.</h1>
+        <p class="hero-sub">Built and curated by <strong>Mwolobi Javanson</strong> to help learners build real-world programming skills through a smooth, structured path.</p>
+        <div class="hero-actions">
+          <button id="startLearningBtn" class="primary-btn" type="button"><i class="fas fa-rocket"></i> Start Learning</button>
+          <a href="contact.html" class="secondary-btn"><i class="fas fa-envelope"></i> Contact Developer</a>
+        </div>
+
+        <div class="progress-card" aria-live="polite">
+          <div class="progress-header">
+            <span>Learning Progress</span>
+            <strong id="progressLabel">0 / 19 lessons</strong>
+          </div>
+          <div class="progress-bar" aria-label="Lesson progress">
+            <span id="progressFill"></span>
+          </div>
+          <p id="progressStatus">Your learning journey is ready to begin.</p>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="glass-card feature-highlight">
+          <span class="badge">Developer Credit</span>
+          <h3>Developed by Mwolobi Javanson</h3>
+          <p>Professional learning design, clean navigation, and practical Python lessons that make every step feel purposeful.</p>
+        </div>
+
+        <div class="menu-preview" aria-label="Hamburger navigation preview">
+          <div class="menu-preview-header">
+            <span class="brand-mini">JANS TECH</span>
+            <button class="menu-preview-burger" type="button" aria-label="Open lessons menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+          <div class="menu-preview-note">Click the hamburger to navigate through lessons.</div>
+        </div>
+      </div>
     </section>
 
-    <!-- ROADMAP GRID -->
-    <section class="roadmap">
-      <h2><i class="fas fa-map-signs"></i> Your Learning Path</h2>
-      <div class="roadmap-grid">
-        <a href="introduction.html" class="roadmap-card">
-          <span class="step">01</span>
-          <i class="fas fa-play"></i>
-          <h3>Introduction to Python</h3>
-          <p>What Python is, why learn it, and where it's used.</p>
-        </a>
-        <a href="setup.html" class="roadmap-card">
-          <span class="step">02</span>
-          <i class="fas fa-download"></i>
-          <h3>Setup & Installation</h3>
-          <p>Install Python, VS Code, and run your first program.</p>
-        </a>
-        <a href="variables.html" class="roadmap-card">
-          <span class="step">03</span>
-          <i class="fas fa-box"></i>
-          <h3>Variables</h3>
-          <p>Storing and reusing data in named containers.</p>
-        </a>
-        <a href="data-types.html" class="roadmap-card">
-          <span class="step">04</span>
-          <i class="fas fa-shapes"></i>
-          <h3>Data Types</h3>
-          <p>Numbers, strings, booleans, and type conversion.</p>
-        </a>
-        <a href="operators.html" class="roadmap-card">
-          <span class="step">05</span>
-          <i class="fas fa-calculator"></i>
-          <h3>Operators</h3>
-          <p>Arithmetic, comparison, logical, and assignment.</p>
-        </a>
-        <a href="strings.html" class="roadmap-card">
-          <span class="step">06</span>
-          <i class="fas fa-font"></i>
-          <h3>Strings</h3>
-          <p>Manipulation, formatting, slicing, and methods.</p>
-        </a>
-        <a href="control-flow.html" class="roadmap-card">
-          <span class="step">07</span>
-          <i class="fas fa-code-branch"></i>
-          <h3>Control Flow</h3>
-          <p>Make decisions with if, elif, and else.</p>
-        </a>
-        <a href="loops.html" class="roadmap-card">
-          <span class="step">08</span>
-          <i class="fas fa-redo"></i>
-          <h3>Loops</h3>
-          <p>Repeat actions using for and while loops.</p>
-        </a>
-        <a href="functions.html" class="roadmap-card">
-          <span class="step">09</span>
-          <i class="fas fa-cube"></i>
-          <h3>Functions</h3>
-          <p>Reusable blocks, parameters, returns, and scope.</p>
-        </a>
-        <a href="lists.html" class="roadmap-card">
-          <span class="step">10</span>
-          <i class="fas fa-list"></i>
-          <h3>Lists</h3>
-          <p>Ordered, mutable collections and their methods.</p>
-        </a>
-        <a href="tuples-set.html" class="roadmap-card">
-          <span class="step">11</span>
-          <i class="fas fa-layer-group"></i>
-          <h3>Tuples & Sets</h3>
-          <p>Immutable sequences and unique collections.</p>
-        </a>
-        <a href="dictionaries.html" class="roadmap-card">
-          <span class="step">12</span>
-          <i class="fas fa-book"></i>
-          <h3>Dictionaries</h3>
-          <p>Key-value pairs for fast lookups.</p>
-        </a>
-        <a href="files.html" class="roadmap-card">
-          <span class="step">13</span>
-          <i class="fas fa-file"></i>
-          <h3>File Handling</h3>
-          <p>Read, write, and manage files with Python.</p>
-        </a>
-        <a href="errors.html" class="roadmap-card">
-          <span class="step">14</span>
-          <i class="fas fa-exclamation-triangle"></i>
-          <h3>Errors & Debugging</h3>
-          <p>Handle exceptions and squash bugs like a pro.</p>
-        </a>
-        <a href="oop.html" class="roadmap-card">
-          <span class="step">15</span>
-          <i class="fas fa-cubes"></i>
-          <h3>Object-Oriented Python</h3>
-          <p>Classes, objects, inheritance, and polymorphism.</p>
-        </a>
-        <a href="modules.html" class="roadmap-card">
-          <span class="step">16</span>
-          <i class="fas fa-puzzle-piece"></i>
-          <h3>Modules & Packages</h3>
-          <p>Organize code and use pip for external tools.</p>
-        </a>
-        <a href="decoraters.html" class="roadmap-card">
-          <span class="step">17</span>
-          <i class="fas fa-magic"></i>
-          <h3>Decorators & Generators</h3>
-          <p>Advanced function manipulation and lazy evaluation.</p>
-        </a>
-        <a href="async.html" class="roadmap-card">
-          <span class="step">18</span>
-          <i class="fas fa-bolt"></i>
-          <h3>Async Programming</h3>
-          <p>Write concurrent code with asyncio.</p>
-        </a>
-        <a href="libraries.html" class="roadmap-card">
-          <span class="step">19</span>
-          <i class="fas fa-toolbox"></i>
-          <h3>Libraries & Frameworks</h3>
-          <p>Django, Flask, Pandas, NumPy, and more.</p>
-        </a>
+    <section class="feature-showcase">
+      <div class="feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Progress Tracking</h3>
+        <p>See exactly where you are in the course and keep your momentum visible.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-signal"></i>
+        <h3>Offline Ready</h3>
+        <p>Built with PWA capabilities so lessons remain accessible even without internet.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-compass"></i>
+        <h3>Smart Navigation</h3>
+        <p>Open the lesson menu instantly and move between topics without friction.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Friendly</h3>
+        <p>Responsive layout keeps the learning experience smooth on phones and tablets.</p>
       </div>
     </section>
 

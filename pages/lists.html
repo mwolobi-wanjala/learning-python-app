@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10. Lists · JANS TECH</title>
+  <title>10. Lists Â· JANS TECH</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="manifest" href="../manifest.json">
@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 </head>
 <body>
-  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='../pages/index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
   <div class="side-menu" id="sideMenu">
     <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
     <ul class="topic-list">
@@ -47,7 +47,7 @@
 
   <header class="lesson-header">
     <h1>10. Lists</h1>
-    <p>Ordered, mutable collections — the workhorse of Python data structures.</p>
+    <p>Ordered, mutable collections â€” the workhorse of Python data structures.</p>
     <div class="breadcrumb"><i class="fas fa-home"></i> Home / Lesson 10</div>
   </header>
 
@@ -152,7 +152,7 @@ ValueError: list.remove(x): x not in list
         <li>Create a list of 5 favorite movies and print each one.</li>
         <li>Add a new movie, remove one, and sort alphabetically.</li>
         <li>Find the largest and smallest number in a list.</li>
-        <li>Use list comprehension to get all odd numbers from 1–20.</li>
+        <li>Use list comprehension to get all odd numbers from 1â€“20.</li>
         <li>Remove duplicates from a list (hint: use a set).</li>
       </ol>
     </section>
@@ -170,7 +170,29 @@ ValueError: list.remove(x): x not in list
     </nav>
   </main>
 
-  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+    <section id="contact" class="contact-section">
+      <h2><i class="fas fa-address-card"></i> Contact JANS TECH</h2>
+      <p>Tap any card below to open the respective app.</p>
+      <div class="contact-grid">
+        <a href="mailto:mwolobijavanson@gmail.com" data-contact="mailto:mwolobijavanson@gmail.com" class="contact-btn email dynamic-contact">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+          <small>mwolobijavanson@gmail.com</small>
+        </a>
+        <a href="https://wa.me/254784095825" data-contact="https://wa.me/254784095825" class="contact-btn whatsapp dynamic-contact">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+          <small>0784095825</small>
+        </a>
+        <a href="tel:+254115995514" data-contact="tel:+254115995514" class="contact-btn call dynamic-contact">
+          <i class="fas fa-phone-alt"></i>
+          <span>Call</span>
+          <small>0115995514</small>
+        </a>
+      </div>
+    </section>
+
+  <footer><p>Â© 2026 <strong>JANS TECH</strong> Â· Created by <strong>Mwolobi Javanson</strong></p></footer>
   <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
   <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
   <script src="../js/main.js"></script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2. Setup & Installation · JANS TECH</title>
+  <title>2. Setup & Installation Â· JANS TECH</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="manifest" href="../manifest.json">
@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 </head>
 <body>
-  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
+  <nav class="navbar" id="navbar"><div class="logo" onclick="window.location.href='../pages/index.html'"><i class="fab fa-python"></i> JANS TECH</div><button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button></nav>
   <div class="side-menu" id="sideMenu">
     <div class="side-menu-header"><h3><i class="fas fa-road"></i> Roadmap</h3><button class="close-menu" id="closeMenuBtn"><i class="fas fa-times"></i></button></div>
     <ul class="topic-list">
@@ -69,7 +69,7 @@
       <h2><i class="fas fa-download"></i> Step 1: Install Python</h2>
       <p>Go to the official website and download the latest version (Python 3.12+).</p>
       <a data-link="https://www.python.org/downloads/" class="resource-link"><i class="fas fa-external-link-alt"></i> Download Python</a>
-      <p><strong>Windows tip:</strong> During installation, check <code>✅ Add Python to PATH</code> — this is critical!</p>
+      <p><strong>Windows tip:</strong> During installation, check <code>âœ… Add Python to PATH</code> â€” this is critical!</p>
       <p><strong>Mac/Linux:</strong> Python 3 usually comes pre-installed. Verify with <code>python3 --version</code>.</p>
     </section>
 
@@ -83,14 +83,14 @@
 
     <section class="lesson-section">
       <h2><i class="fas fa-laptop-code"></i> Step 3: Install VS Code</h2>
-      <p>VS Code is a free, powerful code editor by Microsoft — perfect for Python.</p>
+      <p>VS Code is a free, powerful code editor by Microsoft â€” perfect for Python.</p>
       <a data-link="https://code.visualstudio.com/" class="resource-link"><i class="fas fa-external-link-alt"></i> Download VS Code</a>
       <h3>Must-have VS Code Extensions</h3>
       <ul style="padding-left: 1.5rem;">
-        <li><strong>Python</strong> (by Microsoft) — IntelliSense, debugging, linting</li>
-        <li><strong>Pylance</strong> — Fast type checking</li>
-        <li><strong>Python Indent</strong> — Auto indentation help</li>
-        <li><strong>Black Formatter</strong> — Auto-format your code</li>
+        <li><strong>Python</strong> (by Microsoft) â€” IntelliSense, debugging, linting</li>
+        <li><strong>Pylance</strong> â€” Fast type checking</li>
+        <li><strong>Python Indent</strong> â€” Auto indentation help</li>
+        <li><strong>Black Formatter</strong> â€” Auto-format your code</li>
       </ul>
     </section>
 
@@ -110,7 +110,7 @@ print(f"Hello {name}, welcome to JANS TECH!")</code></pre>
 'python' is not recognized as an internal or external command,
 operable program or batch file.
       </div>
-      <p><strong>Fix:</strong> You forgot to tick "Add Python to PATH" during install. Re-run the installer and choose "Modify" → check PATH.</p>
+      <p><strong>Fix:</strong> You forgot to tick "Add Python to PATH" during install. Re-run the installer and choose "Modify" â†’ check PATH.</p>
 
       <div class="error-box">
 ModuleNotFoundError: No module named 'pandas'
@@ -141,7 +141,29 @@ ModuleNotFoundError: No module named 'pandas'
     </nav>
   </main>
 
-  <footer><p>© 2026 <strong>JANS TECH</strong> · Created by <strong>Mwolobi Javanson</strong></p></footer>
+    <section id="contact" class="contact-section">
+      <h2><i class="fas fa-address-card"></i> Contact JANS TECH</h2>
+      <p>Tap any card below to open the respective app.</p>
+      <div class="contact-grid">
+        <a href="mailto:mwolobijavanson@gmail.com" data-contact="mailto:mwolobijavanson@gmail.com" class="contact-btn email dynamic-contact">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+          <small>mwolobijavanson@gmail.com</small>
+        </a>
+        <a href="https://wa.me/254784095825" data-contact="https://wa.me/254784095825" class="contact-btn whatsapp dynamic-contact">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+          <small>0784095825</small>
+        </a>
+        <a href="tel:+254115995514" data-contact="tel:+254115995514" class="contact-btn call dynamic-contact">
+          <i class="fas fa-phone-alt"></i>
+          <span>Call</span>
+          <small>0115995514</small>
+        </a>
+      </div>
+    </section>
+
+  <footer><p>Â© 2026 <strong>JANS TECH</strong> Â· Created by <strong>Mwolobi Javanson</strong></p></footer>
   <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
   <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Opening...</span></div>
   <script src="../js/main.js"></script>

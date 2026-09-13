@@ -1,23 +1,30 @@
 (function() {
   'use strict';
 
-  // ===== SPLASH SCREEN (5 SECONDS = 5000) =====
-  const SPLASH_DURATION = 5000; // 5 minutes
+  // This whole file runs once when the page loads.
+  // It controls the mobile menu, splash screen, notifications,
+  // lesson navigation, and app-like behaviour for the website.
+
+  // ===== SPLASH SCREEN =====
+  // The splash screen is the welcome screen that appears first.
+  // It hides itself after a short delay so users can enter the app.
+  const SPLASH_DURATION = 5000;
   const splash = document.getElementById('splash');
 
   if (splash) {
-    // Auto-hide after 10 seconds
+    // Hide the splash screen automatically after 5 seconds.
     setTimeout(() => {
       splash.classList.add('hidden');
     }, SPLASH_DURATION);
 
-    // Click to skip
+    // Allow users to skip the splash screen by clicking anywhere on it.
     splash.addEventListener('click', () => {
       splash.classList.add('hidden');
     });
   }
 
-  // ===== NAVBAR SCROLL =====
+  // ===== NAVBAR BEHAVIOUR =====
+  // When the page is scrolled down, the navbar gets a darker style.
   const navbar = document.getElementById('navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
@@ -25,53 +32,83 @@
     });
   }
 
+  // Redirect any Home button to the landing page.
+  // This keeps the user on the true homepage even when they are in a lesson page.
+  function redirectToHome() {
+    const homePath = window.location.pathname.includes('/pages/') ? '../pages/index.html' : './pages/index.html';
+    window.location.href = homePath;
+  }
+
+  document.querySelectorAll('.logo, .home-link, [data-home-link], a[href="index.html"], a[href="../index.html"]').forEach(element => {
+    element.addEventListener('click', event => {
+      event.preventDefault();
+      redirectToHome();
+    });
+  });
+
   // ===== HAMBURGER MENU =====
+  // These elements represent the side menu and its open/close controls.
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const sideMenu = document.getElementById('sideMenu');
   const closeMenuBtn = document.getElementById('closeMenuBtn');
   const overlay = document.getElementById('overlay');
 
+  // Opens the menu and prevents the page behind it from scrolling.
   function openMenu() {
     sideMenu?.classList.add('open');
     overlay?.classList.add('active');
     document.body.classList.add('no-scroll');
   }
+
+  // Closes the menu and restores normal page scrolling.
   function closeMenu() {
     sideMenu?.classList.remove('open');
     overlay?.classList.remove('active');
     document.body.classList.remove('no-scroll');
   }
 
+  // Connect the menu buttons to their actions.
   hamburgerBtn?.addEventListener('click', openMenu);
   closeMenuBtn?.addEventListener('click', closeMenu);
   overlay?.addEventListener('click', closeMenu);
+
+  // Pressing the Escape key closes the menu.
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeMenu();
   });
 
-  // ===== TOAST =====
+  // ===== TOAST NOTIFICATIONS =====
+  // A toast is a small popup message that appears briefly.
+  // It is used to tell users what action is happening.
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toastMsg');
   let toastTimer;
 
   function showToast(message, icon = 'fa-check-circle') {
     if (!toast) return;
+
     toastMsg.textContent = message;
     toast.querySelector('i').className = `fas ${icon}`;
     toast.classList.add('show');
+
+    // Clear any previous timer so the toast stays visible for the right time.
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
   }
 
-  // ===== OFFLINE / ONLINE STATUS =====
+  // ===== ONLINE / OFFLINE STATUS =====
+  // The browser fires these events when network connection changes.
   window.addEventListener('offline', () => {
     showToast('You are offline - app still works!', 'fa-wifi');
   });
+
   window.addEventListener('online', () => {
     showToast('Back online', 'fa-cloud');
   });
 
   // ===== PWA INSTALL PROMPT =====
+  // This feature allows the website to behave like an installed app.
+  // It shows a small banner asking the user if they want to install it.
   let deferredInstallPrompt;
   let installBanner;
 
@@ -81,6 +118,8 @@
   }
 
   function showInstallBanner() {
+    // Only show the install prompt if the app supports installation
+    // and the user has not dismissed it already.
     if (!deferredInstallPrompt || installBanner || localStorage.getItem('pwa-dismissed')) return;
 
     installBanner = document.createElement('aside');
@@ -97,36 +136,97 @@
       </div>`;
     document.body.appendChild(installBanner);
 
+    // If the user clicks install, trigger the native installation prompt.
     installBanner.querySelector('.pwa-install-button').addEventListener('click', async () => {
       deferredInstallPrompt.prompt();
       await deferredInstallPrompt.userChoice;
       deferredInstallPrompt = null;
       hideInstallBanner();
     });
+
+    // If the user dismisses it, remember that choice for later.
     installBanner.querySelector('.pwa-dismiss-button').addEventListener('click', () => {
       localStorage.setItem('pwa-dismissed', 'true');
       hideInstallBanner();
     });
   }
 
+  // This event is fired by the browser when the app is installable.
   window.addEventListener('beforeinstallprompt', event => {
     event.preventDefault();
     deferredInstallPrompt = event;
     window.setTimeout(showInstallBanner, 30000);
   });
+
+  // When the app is installed, clear the install prompt state.
   window.addEventListener('appinstalled', () => {
     deferredInstallPrompt = null;
     hideInstallBanner();
   });
 
-  // ===== TOPIC LIST NAVIGATION (dynamic page loading) =====
-  document.querySelectorAll('.topic-list a[data-page]').forEach(link => {
+  // ===== PROGRESS TRACKING =====
+  // Store which lessons a learner has reached so the home page can
+  // show a professional progress indicator based on activity.
+  const lessonLinks = Array.from(document.querySelectorAll('.topic-list a[data-page]'));
+  const storageKey = 'jans-tech-progress';
+
+  function saveLessonProgress(pageName) {
+    if (!pageName) return;
+
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const next = saved.includes(pageName) ? saved : [...saved, pageName];
+    localStorage.setItem(storageKey, JSON.stringify(next));
+  }
+
+  function updateProgressUI() {
+    const progressLabel = document.getElementById('progressLabel');
+    const progressFill = document.getElementById('progressFill');
+    const progressStatus = document.getElementById('progressStatus');
+
+    if (!progressLabel || !progressFill || !progressStatus) return;
+
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const total = lessonLinks.length || 19;
+    const reached = saved.length;
+    const percent = Math.min(100, Math.round((reached / total) * 100));
+
+    progressLabel.textContent = `${reached} / ${total} lessons`;
+    progressFill.style.width = `${percent}%`;
+
+    if (!reached) {
+      progressStatus.textContent = 'Your learning journey is ready to begin.';
+    } else if (reached === total) {
+      progressStatus.textContent = 'Excellent work — you have completed the full roadmap.';
+    } else {
+      progressStatus.textContent = `You have reached ${reached} lesson${reached === 1 ? '' : 's'} so far.`;
+    }
+  }
+
+  // If the current page is a lesson page, save it as reached progress.
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage && currentPage !== 'index.html') {
+    saveLessonProgress(currentPage);
+  }
+  updateProgressUI();
+
+  // Start button opens the lesson menu directly.
+  const startLearningBtn = document.getElementById('startLearningBtn');
+  startLearningBtn?.addEventListener('click', () => {
+    openMenu();
+    showToast('Opening lesson roadmap...', 'fa-road');
+  });
+
+  // ===== LESSON NAVIGATION =====
+  // Each lesson item in the side menu is linked to a page.
+  // This code prevents the default page jump and shows a toast first.
+  lessonLinks.forEach(link => {
     const page = link.dataset.page;
     if (page) link.setAttribute('href', page);
 
     link.addEventListener('click', e => {
       e.preventDefault();
       if (page) {
+        saveLessonProgress(page);
         showToast('Loading: ' + link.textContent.trim(), 'fa-book-open');
         setTimeout(() => {
           window.location.href = page;
@@ -135,7 +235,8 @@
     });
   });
 
-  // ===== RESOURCE LINKS (open in new tab) =====
+  // ===== EXTERNAL RESOURCE LINKS =====
+  // Resource links open in a new tab instead of replacing the current page.
   document.querySelectorAll('.resource-link').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -149,33 +250,40 @@
     });
   });
 
-  // ===== CONTACT BUTTONS (open respective apps) =====
+  // ===== CONTACT BUTTONS =====
+  // Contact cards open the email app, WhatsApp, or phone dialer.
   document.querySelectorAll('.dynamic-contact').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
       const url = btn.dataset.contact;
       if (!url) return;
+
       if (url.startsWith('mailto:')) showToast('Opening email app...', 'fa-envelope');
       else if (url.includes('wa.me')) showToast('Opening WhatsApp...', 'fa-whatsapp');
       else if (url.startsWith('tel:')) showToast('Opening phone app...', 'fa-phone-alt');
+
       setTimeout(() => {
         window.location.href = url;
       }, 250);
     });
   });
 
-  // ===== BACK TO TOP =====
+  // ===== BACK TO TOP BUTTON =====
+  // This button appears after the user scrolls down the page.
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('show', window.scrollY > 500);
     });
+
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  // ===== SCROLL REVEAL =====
+  // ===== SCROLL REVEAL EFFECT =====
+  // This uses the Intersection Observer API to animate sections
+  // when they come into view while scrolling.
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
