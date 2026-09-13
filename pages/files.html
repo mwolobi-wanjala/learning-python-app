@@ -127,6 +127,19 @@ with open("data.json", "r") as file:
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-folder-open"></i> pathlib and CSV Files</h2>
+      <p><code>pathlib</code> represents paths safely across Windows, macOS, and Linux. The <code>csv</code> module reads table data without manually splitting commas, which matters when a field contains quoted punctuation.</p>
+      <pre><code>from pathlib import Path
+import csv
+
+data_file = Path("students.csv")
+with data_file.open(newline="", encoding="utf-8") as file:
+    for row in csv.DictReader(file):
+        print(row["name"], row["score"])</code></pre>
+      <p><code>Path.open()</code> uses the same file modes as <code>open()</code>, while <code>DictReader</code> uses the header row as dictionary keys. Before reading, check <code>data_file.exists()</code> and report a useful message if the user selected the wrong file.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">
 FileNotFoundError: [Errno 2] No such file or directory: 'missing.txt'

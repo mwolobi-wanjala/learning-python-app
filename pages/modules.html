@@ -85,6 +85,41 @@ print(now.year)</code></pre>
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-calendar-alt"></i> Dates, Math, and JSON</h2>
+      <p>The standard library includes focused modules for common tasks. <code>datetime</code> represents dates, <code>math</code> provides mathematical functions, and <code>json</code> converts between Python data and the text format used by many APIs.</p>
+      <pre><code>from datetime import date
+import json
+import math
+
+today = date.today()
+record = {"year": today.year, "area": math.pi * 3 ** 2}
+json_text = json.dumps(record, indent=2)
+
+print(json_text)
+print(json.loads(json_text)["year"])</code></pre>
+      <div class="output-box">{
+  "year": 2026,
+  "area": 28.274333882308138
+}
+2026</div>
+      <p><code>json.dumps()</code> creates JSON text for a file or HTTP request. <code>json.loads()</code> parses JSON text back into Python objects. Always validate data from outside your program before trusting its fields.</p>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-filter"></i> Regular Expressions</h2>
+      <p>The <code>re</code> module searches text using patterns. It is useful for controlled validation and extraction, but a simple string method is usually easier when it is enough.</p>
+      <pre><code>import re
+
+text = "Contact: learner@example.com"
+match = re.search(r"[\w.-]+@[\w.-]+\.\w+", text)
+
+if match:
+    print(match.group())</code></pre>
+      <div class="output-box">learner@example.com</div>
+      <p>The raw string prefix <code>r</code> keeps backslashes readable. <code>search()</code> returns a match object or <code>None</code>; <code>group()</code> extracts the matched text. Patterns should be tested with valid and invalid examples before they are used for real input.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-puzzle-piece"></i> Creating Your Own Module</h2>
       <p>Create a file <code>mymath.py</code>:</p>
       <pre><code># mymath.py

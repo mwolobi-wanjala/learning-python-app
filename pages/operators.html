@@ -140,6 +140,36 @@ print(count)</code></pre>
 6</div>
     </section>
 
+        <section class="lesson-section">
+      <h2><i class="fas fa-search"></i> Membership and Identity</h2>
+      <p>Membership operators check whether a value exists in a collection. Identity operators check whether two names refer to the same object. Use <code>==</code> for equal values and <code>is</code> mainly for <code>None</code>.</p>
+      <pre><code>roles = ["editor", "reviewer"]
+    user_role = "editor"
+
+    print(user_role in roles)
+    print("admin" not in roles)
+
+    result = None
+    print(result is None)</code></pre>
+      <div class="output-box">True
+    True
+    True</div>
+        </section>
+
+        <section class="lesson-section">
+      <h2><i class="fas fa-sort-amount-down"></i> Precedence and Bitwise Operators</h2>
+      <p>Python evaluates multiplication before addition, comparisons before <code>and</code>, and <code>and</code> before <code>or</code>. Parentheses make the intended order obvious. Bitwise operators work on the binary bits of integers and are useful for flags and low-level data.</p>
+      <pre><code>result = 2 + 3 * 4
+    clear_result = (2 + 3) * 4
+    print(result, clear_result)
+
+    read = 0b001
+    write = 0b010
+    print(read | write)  # combine flags</code></pre>
+      <div class="output-box">14 20
+    3</div>
+        </section>
+
     <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">

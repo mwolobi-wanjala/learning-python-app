@@ -65,6 +65,26 @@ response = requests.get("https://example.com")</code></pre>
       <p>Choose a library by checking its documentation, maintenance, license, and security. A data frame is a table-like structure for analysis, an API is a way for programs to communicate, and web scraping means extracting information from web pages where permission allows it.</p>
       <p><strong>Key words:</strong> library (reusable tools), framework (application structure), package (installable code), API (program-to-program interface), dependency (required package), data frame (table-like data), GUI (graphical interface), and model (learned or structured prediction logic).</p>
     </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-vial"></i> Testing and Logging</h2>
+      <p>Tests check behavior automatically; logging records what a running program is doing. Together they make changes safer than relying only on manual clicking and temporary <code>print()</code> statements.</p>
+      <pre><code># calculator.py
+def add(first, second):
+    return first + second
+
+# test_calculator.py
+import unittest
+from calculator import add
+
+class CalculatorTests(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)
+
+if __name__ == "__main__":
+    unittest.main()</code></pre>
+      <p>Run it with <code>python -m unittest</code>. A test names a behavior and fails when the result changes unexpectedly. For a real application, use the <code>logging</code> module with levels such as <code>INFO</code>, <code>WARNING</code>, and <code>ERROR</code> so diagnostic output can be controlled without changing the program.</p>
+    </section>
     <section class="lesson-section">
       <h2><i class="fas fa-globe"></i> Web Development</h2>
       <h3>Flask â€” Lightweight & Flexible</h3>

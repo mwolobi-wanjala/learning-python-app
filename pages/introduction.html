@@ -72,6 +72,20 @@ print("Hello, " + name) # ask Python to display a message</code></pre>
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-file-code"></i> Syntax, Comments, and Indentation</h2>
+      <p>Python uses readable statements and indentation instead of curly braces. A colon starts a block, and the indented lines belong to that block. Comments begin with <code>#</code> and are ignored by Python; use them to explain a decision, not to repeat obvious code.</p>
+      <pre><code># Store the order total before applying the discount.
+total = 120
+
+if total &gt;= 100:
+    discount = 10
+    total -= discount
+
+print(total)</code></pre>
+      <p>The blank lines are for people, the comment documents the purpose, and the four-space indentation defines the body of the <code>if</code> statement. Python reads the code from top to bottom, so a name must be created before it is used.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-question-circle"></i> What is Python?</h2>
       <p>Python is a <strong>high-level, interpreted, general-purpose programming language</strong> created by Guido van Rossum in 1991. It emphasizes code readability and lets you write programs in fewer lines than languages like C++ or Java.</p>
       <p>Its design philosophy: <em>"Simple is better than complex."</em></p>

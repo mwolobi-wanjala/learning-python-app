@@ -133,6 +133,20 @@ print(evens)</code></pre>
 [0, 2, 4, 6, 8]</div>
     </section>
 
+        <section class="lesson-section">
+      <h2><i class="fas fa-th-list"></i> Lists as Python Arrays</h2>
+      <p>Python lists provide the array-like behavior most programs need: ordered positions, a length, and fast access by index. Unlike a low-level fixed-type array, a list can hold mixed values and grow dynamically. Use a list for general application data; use <code>array</code> or NumPy when memory layout and numeric performance matter.</p>
+      <pre><code>scores = [72, 81, 90]
+    scores.append(88)
+    average = sum(scores) / len(scores)
+
+    print(scores)
+    print(round(average, 1))</code></pre>
+      <div class="output-box">[72, 81, 90, 88]
+    82.8</div>
+      <p><code>sum()</code> and <code>len()</code> are built-in functions that work with many iterables. Keeping this calculation separate from input and output makes it easier to reuse and test.</p>
+        </section>
+
     <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">

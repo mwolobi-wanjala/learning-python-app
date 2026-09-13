@@ -131,6 +131,24 @@ print(status)</code></pre>
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-route"></i> match for Pattern Choices</h2>
+      <p><code>match</code> compares one value against several patterns. It is useful when a menu, command, or status has known alternatives. This syntax requires Python 3.10 or newer.</p>
+      <pre><code>command = "start"
+
+match command:
+    case "start":
+        message = "Service started"
+    case "stop":
+        message = "Service stopped"
+    case _:
+        message = "Unknown command"
+
+print(message)</code></pre>
+      <div class="output-box">Service started</div>
+      <p>The underscore is the default pattern. Unlike a long chain of unrelated conditions, <code>match</code> makes it clear that every branch describes a possible value of the same expression.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">
 SyntaxError: expected ':'

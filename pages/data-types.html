@@ -110,6 +110,36 @@ print(text + " is the year")</code></pre>
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-keyboard"></i> User Input and Validation</h2>
+      <p><code>input()</code> pauses the program and returns what the user typed as a string. Convert that string only after checking that it has the form your program expects. This prevents a friendly program from crashing on ordinary mistakes.</p>
+      <pre><code>age_text = input("Enter your age: ").strip()
+
+if age_text.isdigit():
+    age = int(age_text)
+    print(f"Next year you will be {age + 1}.")
+else:
+    print("Please enter digits only.")</code></pre>
+      <p><code>strip()</code> removes extra spaces, <code>isdigit()</code> checks for non-negative whole numbers, and <code>int()</code> performs the conversion. For prices or negative values, use <code>try</code>/<code>except</code> because those inputs need more flexible validation.</p>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-hashtag"></i> Numbers, Booleans, and Truthiness</h2>
+      <p>Integers and floats support arithmetic, while booleans represent decisions. Python also treats empty strings, empty collections, <code>0</code>, and <code>None</code> as false in a condition. Most other values are truthy.</p>
+      <pre><code>items = []
+balance = 250.50
+
+if not items:
+    print("The basket is empty")
+
+print(round(balance * 1.16, 2))
+print(bool("Python"))</code></pre>
+      <div class="output-box">The basket is empty
+290.58
+True</div>
+      <p>Use <code>round()</code> for display calculations, but use a decimal type for financial systems that require exact currency rules. <code>bool(value)</code> makes Python's truthiness rule explicit.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">
 TypeError: can only concatenate str (not "int") to str

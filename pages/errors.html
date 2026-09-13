@@ -111,6 +111,25 @@ except ValueError as e:
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-exclamation-circle"></i> Custom Exceptions and Chaining</h2>
+      <p>Create a custom exception when callers need to distinguish one business rule from other errors. Use <code>raise ... from error</code> when a lower-level failure should keep its cause.</p>
+      <pre><code>class InsufficientFundsError(Exception):
+    pass
+
+def withdraw(balance, amount):
+    if amount &gt; balance:
+        raise InsufficientFundsError("Balance is too low")
+    return balance - amount
+
+try:
+    print(withdraw(100, 150))
+except InsufficientFundsError as error:
+    print(f"Payment declined: {error}")</code></pre>
+      <div class="output-box">Payment declined: Balance is too low</div>
+      <p>Catch the narrowest exception you can handle. Avoid hiding programming errors with a broad <code>except Exception</code> unless you log the error and have a deliberate recovery plan.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Python Exceptions</h2>
       <ul style="padding-left: 1.5rem;">
         <li><code>SyntaxError</code> â€” Invalid Python syntax</li>

@@ -147,6 +147,20 @@ Frontend</div>
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-magic"></i> Dictionary Comprehensions</h2>
+      <p>A dictionary comprehension creates key-value pairs from an iterable. It is helpful for small, clear transformations; use a normal loop when the rule needs multiple steps or error handling.</p>
+      <pre><code>prices = {"book": 20, "course": 50, "pen": 5}
+discounted = {
+    name: round(price * 0.9, 2)
+    for name, price in prices.items()
+}
+
+print(discounted)</code></pre>
+      <div class="output-box">{'book': 18.0, 'course': 45.0, 'pen': 4.5}</div>
+      <p>The loop reads each key and value, calculates a new value, and stores the result under the same key. This pattern appears in data cleaning, configuration building, and API response preparation.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">
 KeyError: 'country'

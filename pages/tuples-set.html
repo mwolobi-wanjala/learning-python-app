@@ -120,6 +120,20 @@ print(a ^ b)   # Symmetric difference</code></pre>
 {1, 2, 5, 6}</div>
     </section>
 
+        <section class="lesson-section">
+      <h2><i class="fas fa-filter"></i> Set and Tuple Comprehensions</h2>
+      <p>A comprehension builds a collection from a loop. A set comprehension removes duplicates automatically, while a tuple is commonly created by passing a generator expression to <code>tuple()</code>.</p>
+      <pre><code>words = ["python", "api", "python", "web"]
+    lengths = {len(word) for word in words}
+    length_pairs = tuple((word, len(word)) for word in words)
+
+    print(lengths)
+    print(length_pairs)</code></pre>
+      <div class="output-box">{2, 3, 6}
+    ('python', 6), ('api', 3), ('python', 6), ('web', 3)</div>
+      <p>Set order is not guaranteed, so do not write programs that depend on the display order. Sort a set when you need predictable presentation.</p>
+        </section>
+
     <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">

@@ -139,6 +139,32 @@ print(counter)</code></pre>
     </section>
 
     <section class="lesson-section">
+      <h2><i class="fas fa-bolt"></i> Lambda Functions</h2>
+      <p>A lambda is a small anonymous function containing one expression. Use it for a short transformation or as a key passed to another function; use <code>def</code> when the logic needs several lines or a useful name.</p>
+      <pre><code>prices = [12.5, 4.0, 19.99]
+with_tax = list(map(lambda price: round(price * 1.16, 2), prices))
+print(with_tax)
+
+names = ["Zoe", "Alexander", "Bo"]
+print(sorted(names, key=lambda name: len(name)))</code></pre>
+      <div class="output-box">[14.5, 4.64, 23.19]
+['Bo', 'Zoe', 'Alexander']</div>
+    </section>
+
+    <section class="lesson-section">
+      <h2><i class="fas fa-redo"></i> Recursion</h2>
+      <p>Recursion is when a function calls itself. Every recursive function needs a base case that stops the calls and a smaller subproblem that moves toward that case.</p>
+      <pre><code>def factorial(number):
+    if number &lt;= 1:       # base case
+        return 1
+    return number * factorial(number - 1)
+
+print(factorial(4))</code></pre>
+      <div class="output-box">24</div>
+      <p>The calls expand as <code>4 * factorial(3)</code>, then <code>3 * factorial(2)</code>, until the base case returns 1. The results then resolve in reverse order. For simple counting, a loop is often clearer and avoids Python's recursion limit.</p>
+    </section>
+
+    <section class="lesson-section">
       <h2><i class="fas fa-bug"></i> Common Errors & Bugs</h2>
       <div class="error-box">
 TypeError: greet() missing 1 required positional argument: 'name'
