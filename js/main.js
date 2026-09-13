@@ -168,14 +168,39 @@
   // Store which lessons a learner has reached so the home page can
   // show a professional progress indicator based on activity.
   const lessonLinks = Array.from(document.querySelectorAll('.topic-list a[data-page]'));
+  const roadmapPages = lessonLinks.map(link => link.dataset.page);
   const storageKey = 'jans-tech-progress';
+  const skippedStorageKey = 'jans-tech-skipped-lessons';
 
   function saveLessonProgress(pageName) {
     if (!pageName) return;
 
     const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const skipped = JSON.parse(localStorage.getItem(skippedStorageKey) || '[]');
+    const targetIndex = roadmapPages.indexOf(pageName);
+    const firstIncomplete = roadmapPages.findIndex(page => !saved.includes(page));
+
+    // Any earlier lesson left behind the selected lesson is recorded as skipped.
+    if (targetIndex > firstIncomplete && firstIncomplete !== -1) {
+      const newlySkipped = roadmapPages.slice(firstIncomplete, targetIndex);
+      newlySkipped.forEach(page => {
+        if (!skipped.includes(page)) skipped.push(page);
+      });
+    }
+
     const next = saved.includes(pageName) ? saved : [...saved, pageName];
     localStorage.setItem(storageKey, JSON.stringify(next));
+    localStorage.setItem(skippedStorageKey, JSON.stringify(skipped.filter(page => page !== pageName)));
+  }
+
+  function getSkippedLessons() {
+    return JSON.parse(localStorage.getItem(skippedStorageKey) || '[]');
+  }
+
+  function updateSkippedLessonStyles(skipped) {
+    lessonLinks.forEach(link => {
+      link.classList.toggle('skipped-lesson', skipped.includes(link.dataset.page));
+    });
   }
 
   function updateProgressUI() {
@@ -186,30 +211,41 @@
     if (!progressLabel || !progressFill || !progressStatus) return;
 
     const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const skipped = getSkippedLessons();
     const total = lessonLinks.length || 19;
-    const reached = saved.length;
+    let reached = 0;
+    while (roadmapPages[reached] && saved.includes(roadmapPages[reached])) reached += 1;
     const percent = Math.min(100, Math.round((reached / total) * 100));
-    const latestPage = saved[saved.length - 1];
+    const latestPage = currentPage !== 'index.html' ? currentPage : saved[saved.length - 1];
     const latestLink = lessonLinks.find(link => link.dataset.page === latestPage);
     const currentLesson = latestLink
       ? latestLink.textContent.trim().replace(/^\d+\.\s*/, '')
       : '';
+    const skippedNames = skipped
+      .map(page => lessonLinks.find(link => link.dataset.page === page))
+      .filter(Boolean)
+      .map(link => link.textContent.trim().replace(/^\d+\.\s*/, ''));
 
     progressLabel.textContent = `${reached} / ${total} lessons`;
     progressFill.style.width = `${percent}%`;
+    updateSkippedLessonStyles(skipped);
 
     if (!reached) {
-      progressStatus.textContent = 'Your learning journey is ready to begin.';
+      progressStatus.textContent = skippedNames.length
+        ? `You skipped: ${skippedNames.join(', ')}. Currently on: ${currentLesson}.`
+        : 'Your learning journey is ready to begin.';
     } else if (reached === total) {
       progressStatus.textContent = `You have reached ${reached} lessons. Currently on: ${currentLesson}. You have completed the full roadmap.`;
+    } else if (skippedNames.length) {
+      progressStatus.textContent = `You have reached ${reached} lesson${reached === 1 ? '' : 's'} in order. You skipped: ${skippedNames.join(', ')}. Currently on: ${currentLesson}.`;
     } else {
-      progressStatus.textContent = `You have reached ${reached} lesson${reached === 1 ? '' : 's'}. Currently on: ${currentLesson}.`;
+      progressStatus.textContent = `You have reached ${reached} lesson${reached === 1 ? '' : 's'} in order. Currently on: ${currentLesson}.`;
     }
   }
 
   // If the current page is a lesson page, save it as reached progress.
   const currentPage = window.location.pathname.split('/').pop();
-  if (currentPage && currentPage !== 'index.html') {
+  if (currentPage && roadmapPages.includes(currentPage)) {
     saveLessonProgress(currentPage);
   }
   updateProgressUI();

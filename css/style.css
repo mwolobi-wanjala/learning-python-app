@@ -116,6 +116,16 @@ body.no-scroll { overflow: hidden; }
 .topic-list a:hover { background: var(--primary-light); color: white; transform: translateX(6px); border-left-color: var(--accent); }
 .topic-list a:hover i { transform: scale(1.2); }
 .topic-list a.active { background: var(--primary-light); border-left-color: var(--accent); color: white; }
+.topic-list a.skipped-lesson {
+  color: #fecaca;
+  border-left-color: #ef4444;
+  animation: skippedLessonPulse 1.25s ease-in-out infinite;
+}
+.topic-list a.skipped-lesson i { color: #f87171; }
+@keyframes skippedLessonPulse {
+  0%, 100% { background: rgba(127, 29, 29, 0.18); }
+  50% { background: rgba(239, 68, 68, 0.42); }
+}
 .menu-footer { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #2d4a5e; font-size: 0.85rem; color: #94a3b8; text-align: center; }
 .menu-footer strong { color: var(--accent); }
 .overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); z-index: 900; opacity: 0; visibility: hidden; transition: 0.3s; }
