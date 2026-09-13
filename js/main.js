@@ -240,6 +240,37 @@
     });
   });
 
+  // ===== WHATSAPP ASSIGNMENT SUBMISSIONS =====
+  // Add a response field to every assignment so learners can send their work
+  // directly to JANS TECH for review without needing a server or account.
+  const lessonTitle = document.querySelector('.lesson-header h1')?.textContent.trim() || 'Python lesson';
+  document.querySelectorAll('.assignment-box').forEach(assignment => {
+    const assignmentTitle = assignment.querySelector('h3')?.textContent.trim() || 'Assignment';
+    const responseArea = document.createElement('div');
+    responseArea.className = 'assignment-submit';
+    responseArea.innerHTML = `
+      <label for="assignmentResponse">Your completed work</label>
+      <textarea id="assignmentResponse" rows="6" placeholder="Type or paste your code and answers here..."></textarea>
+      <button type="button" class="whatsapp-submit">
+        <i class="fab fa-whatsapp"></i> Send Assignment on WhatsApp
+      </button>`;
+    assignment.appendChild(responseArea);
+
+    responseArea.querySelector('button').addEventListener('click', () => {
+      const response = responseArea.querySelector('textarea').value.trim();
+      if (!response) {
+        showToast('Add your completed work first.', 'fa-pen');
+        responseArea.querySelector('textarea').focus();
+        return;
+      }
+
+      const message = `Hello JANS TECH,\n\nI have completed ${assignmentTitle} in ${lessonTitle}.\n\nMy work:\n${response}`;
+      const whatsappUrl = `https://wa.me/254784095825?text=${encodeURIComponent(message)}`;
+      showToast('Opening WhatsApp...', 'fa-whatsapp');
+      setTimeout(() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer'), 250);
+    });
+  });
+
   // ===== EXTERNAL RESOURCE LINKS =====
   // Resource links open in a new tab instead of replacing the current page.
   document.querySelectorAll('.resource-link').forEach(link => {
