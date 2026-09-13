@@ -509,6 +509,14 @@ footer strong { color: var(--accent); }
 }
 .home-shell .glass-card h3 { font-family: Georgia, 'Times New Roman', serif; }
 .home-shell .glass-card p { color: #506477; }
+.home-shell .glass-card .developer-role {
+  margin: -0.35rem 0 0.7rem;
+  color: #9a6f08;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+}
 .home-shell .badge {
   background: transparent;
   color: #9a6f08;
